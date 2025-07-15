@@ -1,5 +1,7 @@
 import React from 'react'
 import { categoriesData } from '../../Constant/categoriesData'
+import InfoSection from '../InfoSection';
+import CategoriesSection from '../CategoriesSection';
 
 const Home = () => {
   return (
@@ -39,6 +41,8 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <InfoSection />
+        <CategoriesSection />
       </div>
     </div>
   );
