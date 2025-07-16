@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { categoriesData } from '../../Constant/categoriesData'
 import InfoSection from '../InfoSection';
 import CategoriesSection from '../CategoriesSection';
+import { setProducts } from '../../redux/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { topProductItems } from '../../Constant/topProductItems';
+import ProductCard from '../productCard';
+import Shop from './Shop';
 
 const Home = () => {
+
+  const dispatch = useDispatch()
+  const products = useSelector(state => state.product)
+  useEffect(() => {
+    dispatch(setProducts(topProductItems));
+  },[])
+
   return (
     <div>
       <div className="bg-white mt-2 md:px-16 lg:px-24 py-4">
@@ -15,10 +27,12 @@ const Home = () => {
             </div>
             <ul className="space-y-4 bg-gray-100 p-3 border">
               {categoriesData.map(({ id, category }) => (
-                <li key={id} className="flex items-center text-sm font-medium">
-                  <div className="w-2 h-2 border border-red-500 rounded-full mr-2"></div>
-                  {category}
-                </li>
+                <div key={id}>
+                  <li className="flex items-center text-sm font-medium">
+                    <div className="w-2 h-2 border border-red-500 rounded-full mr-2"></div>
+                    {category}
+                  </li>
+                </div>
               ))}
             </ul>
           </div>
@@ -43,7 +57,16 @@ const Home = () => {
         </div>
         <InfoSection />
         <CategoriesSection />
+        <div className="container mx-auto py-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">Top Products</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 cursor-pointer">
+            {products.products.slice(0, 5).map((product) => (
+              <ProductCard product={product} />
+            ))}
+          </div>
+        </div>
       </div>
+      <Shop/>
     </div>
   );
 }
