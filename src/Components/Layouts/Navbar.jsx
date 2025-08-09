@@ -22,10 +22,14 @@ const Navbar = () => {
             <FaSearch className="absolute top-3 right-3 text-red-500"></FaSearch>
           </form>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 relative">
           <Link to="/cart" className="">
             <FaShoppingCart className="text-lg" />
-              {products.length > 0 ? products.length : <></>}
+              {products.length > 0 && (
+                <span className='absolute top-0 text-xs w-3 left-3 bg-red-600 rounded-full flex justify-center items-center text-white'>
+                  {products.length}
+                </span>
+              )}
           </Link>
           <button className="hidden md:block">Login | Register</button>
           <button className="block md:hidden">

@@ -5,7 +5,7 @@ import { FaStar } from 'react-icons/fa'
 const ProductCard = ({product}) => {
 
       const dispatch = useDispatch()
-      const handleAddToCart = (e, product) =>{
+      const handleAddToCart = (e, product) => {
            e.stopPropagation() 
            e.preventDefault()
            dispatch(addToCart(product));
