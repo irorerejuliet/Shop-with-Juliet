@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Model from "../Model";
 import ChangeAddress from "../ChangeAddress";
+import { removeFromCart } from "../../redux/cartSlice";
+
 
 useSelector
 
@@ -10,6 +12,7 @@ const Cart = () => {
   const cart = useSelector((state )=> state.cart)
   const [address, setAddress] = useState('main stret, 0012')
   const [isModelOpen, setIsModelOpen] = useState(false)
+  const dispatch = useDispatch()
   return (
     <div className="container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24">
       {cart.products.length > 0 ? (
@@ -55,7 +58,7 @@ const Cart = () => {
                       </div>
                       <p>${(product.price * product.quantity).toFixed(2)}</p>
                       {/* <p>${(product.quality * product.price).toFixed(2)}</p> */}
-                      <button className="text-red-500 hover:text-red-800">
+                      <button className="text-red-500 hover:text-red-800" onClick={() => dispatch(removeFromCart(product.id)) }>
                         <FaTrashAlt />
                       </button>
                     </div>
