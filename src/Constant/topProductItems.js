@@ -57,6 +57,6 @@ export const topProductItems = [
     id: 10,
     image: "/Images/product-10.png",
     name: "Product 10",
-    price: 29.00,
+    price: 29.20,
   },
 ];
