@@ -12,6 +12,14 @@ const Checkout = () => {
 
   const cart = useSelector(state => state.cart)
 
+  // To store the shipping information, i created a state variable
+  const [shippingInfo, setShippingInfo] = useState({
+    address: '',
+    city: '',
+    zip: '',
+  })
+
+
 
 
   return (
@@ -81,6 +89,12 @@ const Checkout = () => {
                   type="text"
                   placeholder="Enter Address"
                   className="w-full px-3 py-2 border"
+                  onChange={(e) =>
+                    setShippingInfo({
+                      ...shippingInfo,
+                      address: e.target.value,
+                    })
+                  }
                 />
               </div>
               <div>
@@ -90,6 +104,12 @@ const Checkout = () => {
                     type="city name"
                     placeholder="Enter City Name"
                     className="w-full px-3 py-2 border"
+                    onChange={(e) =>
+                      setShippingInfo({
+                        ...shippingInfo,
+                        city: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -100,6 +120,12 @@ const Checkout = () => {
                     type="text"
                     placeholder="Enter Zip Code"
                     className="w-full px-3 py-2 border"
+                    onChange={(e) =>
+                      setShippingInfo({
+                        ...shippingInfo,
+                        zip: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -197,29 +223,40 @@ const Checkout = () => {
         </div>
 
         <div className="md:w-1/3 bg-white p-6 rounded-lg shadow-md border">
-          <h3>Order Summary</h3>
-          <div>
-            {cart.products.map(product => (
-                <div>
-                  <div>
-                    <img src={product.image} alt={product.name}/>
-                    <div>
-                      <h3 className='text-7xl font-bold'>{product.name} </h3>
-                      <p>
-                        &{product.price} * {product.quantiiy}
-                      </p>
-                    </div>
+          <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
+          <div className="space-y-4">
+            {cart.products.map((product) => (
+              <div key={product.id} className="flex justify-between">
+                <div className="flex items-center">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-16 h-16 object-contain rounded"
+                  />
+                  <div className="ml-4">
+                    <h3 className="text-md font-semibold">{product.name} </h3>
+                    <p className="text-gray-600">
+                      &{product.price} * {product.quantity}
+                    </p>
                   </div>
                 </div>
-              ))} 
+                <div className="text-gray-800">
+                  ${product.price * product.quantity}
+                </div>
+              </div>
+            ))}
           </div>
-          <div>
-            <div>
+          <div className="mt-4 border-t pt-4">
+            <div className="flex justify-between">
               <span>Total Price:</span>
-              <p>${cart.totalPrice.toFixed(2)}</p>
+              <span className="font-semibold">
+                ${cart.totalPrice.toFixed(2)}
+              </span>
             </div>
           </div>
-          <button>Place Order</button>
+          <button className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800">
+            Place Order
+          </button>
         </div>
       </div>
     </div>
