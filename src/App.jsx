@@ -6,6 +6,7 @@ import Shop from "./Components/Pages/Shop";
 import Cart from "./Components/Pages/Cart";
 import Checkout from "./Components/Pages/Checkout";
 import { useState } from "react";
+import OrderComfirmation from "./Components/Pages/OrderComfirmation";
 
 
 const App = () => {
@@ -19,7 +20,8 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout setOrder ={setOrder}/>} />
+          <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
+          <Route path="/orderComfirmation" element={<OrderComfirmation order={order}/>} />
         </Route>
       </Routes>
       <Footer />
