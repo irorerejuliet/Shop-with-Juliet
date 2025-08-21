@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Cart from './Cart'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
-const Checkout = () => {
+const Checkout = ({setOrder}) => {
   const [billingToggle, setBillingToggle] = useState(true)
   const [shippingToggle, setShippingToggle] = useState(false);
   const [PaymentToggle, setPaymentToggle] = useState(false);
@@ -11,6 +12,7 @@ const Checkout = () => {
   // cod means cash on delivery
 
   const cart = useSelector(state => state.cart)
+  const navigate = useNavigate()
 
   // To store the shipping information, i created a state variable
   const [shippingInfo, setShippingInfo] = useState({
@@ -19,6 +21,16 @@ const Checkout = () => {
     zip: '',
   })
 
+  const handleOrder =  () => {
+    const newOrder = {
+      product: cart.products,
+      orderNumber: "12344",
+      shippingInformation: shippingInfo,
+      totalPrice: cart.totalPrice
+    }
+    setOrder(newOrder)
+    navigate('/order-comfirmation')
+  }
 
 
 
@@ -254,7 +266,8 @@ const Checkout = () => {
               </span>
             </div>
           </div>
-          <button className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800">
+          <button className="w-full bg-red-600 text-white py-2 mt-6 hover:bg-red-800"
+          onClick={handleOrder}>
             Place Order
           </button>
         </div>
