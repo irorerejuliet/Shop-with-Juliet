@@ -5,6 +5,10 @@ const OrderConfirmation = ({order}) => {
 
 const navigate = useNavigate()
 
+// An error happens because when i navigate directly to /orderConfirmation, the order prop was  still null (since i initialized useState(null) in App.js). s order.orderNumber
+// React tries to read a property from null, which crashes the app.
+
+
   if (!order) {
     return (
       <div className="p-6 text-center">
