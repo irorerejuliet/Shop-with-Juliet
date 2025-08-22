@@ -31,7 +31,7 @@ const Navbar = () => {
                 </span>
               )}
           </Link>
-          <button className="hidden md:block">Login | Register</button>
+          <button className="hidden md:block" onClick={}>Login | Register</button>
           <button className="block md:hidden">
             <FaUser className="" />
           </button>

@@ -6,7 +6,7 @@ import Shop from "./Components/Pages/Shop";
 import Cart from "./Components/Pages/Cart";
 import Checkout from "./Components/Pages/Checkout";
 import { useState } from "react";
-import OrderComfirmation from "./Components/Pages/OrderComfirmation";
+import OrderConfirmation from "./Components/Pages/OrderConfirmation";
 
 
 const App = () => {
@@ -16,13 +16,14 @@ const App = () => {
     <>
       <Navbar />
       <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
-          <Route path="/orderComfirmation" element={<OrderComfirmation order={order}/>} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout setOrder={setOrder} />} />
+        <Route
+          path="/orderConfirmation"
+          element={<OrderConfirmation order={order} />}
+        />
       </Routes>
       <Footer />
     </>

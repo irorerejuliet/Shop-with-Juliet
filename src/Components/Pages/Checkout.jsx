@@ -23,13 +23,13 @@ const Checkout = ({setOrder}) => {
 
   const handleOrder =  () => {
     const newOrder = {
-      product: cart.products,
+      products: cart.products,
       orderNumber: "12344",
       shippingInformation: shippingInfo,
       totalPrice: cart.totalPrice
     }
     setOrder(newOrder)
-    navigate('/order-comfirmation')
+    navigate('/orderConfirmation')
   }
 
 
