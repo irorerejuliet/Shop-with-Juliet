@@ -27,7 +27,7 @@ const App = () => {
           element={<OrderConfirmation order={order} />}
         />
         <Route path="/filterData" element={<FilterData />} />
-        <Route path="/product/id" element={<ProductDetails />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />
     </>
