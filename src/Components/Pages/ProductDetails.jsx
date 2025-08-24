@@ -29,16 +29,15 @@ const ProductDetails = () => {
           <p className="text-xl font-semibold text-gray-800 mb-4">
             ${product.price}
           </p>
-          <div className="flex items-center mb-4 gap-x-2">
+          <div className="flex  items-center mb-4 gap-x-2">
             {/* <label htmlFor="quantity" className='mr-2'>Quantity:</label> */}
-            <input
-              type="number"
-              id="quantity"
-              min="1"
-              className="border p-1 w-16"
-            />
+            <input type="number" id="quantity" className="border p-1 w-16" />
 
-            <button className="flex flex-col gap-y-4 mt-4">Add to Cart</button>
+            <button className="bg-red-500 text-white py-1.5 px-4 hover:bg-red-800">
+              Add to Cart
+            </button>
+          </div>
+          <div className="flex flex-col gap-4 mt-4">
             <p className="flex items-center">
               {" "}
               <FaQuestion className="mr-1" />
