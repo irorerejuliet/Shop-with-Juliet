@@ -9,6 +9,7 @@ import OrderConfirmation from "./Pages/OrderConfirmation";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import FilterData from "./Pages/FilterData";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -20,7 +21,8 @@ const App = () => {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
@@ -30,7 +32,7 @@ const App = () => {
           path="/orderConfirmation"
           element={<OrderConfirmation order={order} />}
         />
-        <Route path="/filterData" element={<FilterData/>} />
+        <Route path="/filterData" element={<FilterData />} />
         <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />

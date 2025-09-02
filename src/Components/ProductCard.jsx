@@ -2,6 +2,7 @@ import { addToCart } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router';
+import toast from 'react-hot-toast';
 
 const ProductCard = ({product}) => {
 
@@ -10,7 +11,7 @@ const ProductCard = ({product}) => {
            e.stopPropagation() 
            e.preventDefault()
            dispatch(addToCart(product));
-           alert("Product Added Successfuly!")
+           toast.success("Product Added Successfuly!")
       }
 
 
