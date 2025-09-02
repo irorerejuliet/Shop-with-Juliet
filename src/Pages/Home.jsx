@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { categoriesData } from '../../Constant/categoriesData'
-import InfoSection from '../InfoSection';
-import CategoriesSection from '../CategoriesSection';
-import { setProducts } from '../../redux/productSlice';
+import InfoSection from '../Components/InfoSection'
+import categoriesData from '../Constant/categoriesData'
+import CategoriesSection from '../Components/CategoriesSection'
+import {topProductItems} from '../Constant/topProductItems'
+import  {setProducts} from '../redux/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { topProductItems } from '../../Constant/topProductItems';
-import ProductCard from '../productCard';
+
 import Shop from './Shop';
+import ProductCard from '../Components/productCard';
 
 const Home = () => {
 
@@ -14,7 +15,7 @@ const Home = () => {
   const products = useSelector(state => state.product)
   useEffect(() => {
     dispatch(setProducts(topProductItems));
-  },[])
+  },[dispatch])
 
   return (
     <div>
@@ -26,7 +27,7 @@ const Home = () => {
               SHOP BT CATEGORIES
             </div>
             <ul className="space-y-4 bg-gray-100 p-3 border">
-              {categoriesData.map(({ id, category }) => (
+              {categoriesData?.map(({ id, category }) => (
                 <div key={id}>
                   <li className="flex items-center text-sm font-medium">
                     <div className="w-2 h-2 border border-red-500 rounded-full mr-2"></div>

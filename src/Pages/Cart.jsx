@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux"
-import Model from "../Model";
-import ChangeAddress from "../ChangeAddress";
-import { removeFromCart } from "../../redux/cartSlice";
-import { increaseQuantity, decreaseQuantity } from "../../redux/cartSlice";
 import { useNavigate } from "react-router";
+import Model from "../Components/Model";
+import ChangeAddress from "../Components/ChangeAddress";
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
 
 
 useSelector

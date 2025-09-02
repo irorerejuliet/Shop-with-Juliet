@@ -1,6 +1,7 @@
 
 import { useSelector } from 'react-redux';
-import ProductCard from '../productCard';
+import ProductCard from '../Components/productCard';
+
 
 
 const Shop = () => {

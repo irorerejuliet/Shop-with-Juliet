@@ -1,14 +1,18 @@
-import { Route, Routes } from "react-router";
-import Footer from "./Components/Layouts/Footer";
-import Navbar from "./Components/Layouts/Navbar";
-import Home from "./Components/Pages/Home";
-import Shop from "./Components/Pages/Shop";
-import Cart from "./Components/Pages/Cart";
-import Checkout from "./Components/Pages/Checkout";
+import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import OrderConfirmation from "./Components/Pages/OrderConfirmation";
-import FilterData from "./Components/Pages/FilterData";
-import ProductDetails from "./Components/Pages/ProductDetails";
+import Navbar from "./Components/Layouts/Navbar";
+import Footer from "./Components/Layouts/Footer";
+import Home from "./Pages/Home";
+import Shop from "./Pages/Shop";
+import ProductDetails from "./Pages/ProductDetails";
+import OrderConfirmation from "./Pages/OrderConfirmation";
+import Cart from "./Pages/Cart";
+import Checkout from "./Pages/Checkout";
+import FilterData from "./Pages/FilterData";
+
+
+
+
 
 
 const App = () => {
@@ -16,7 +20,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
@@ -26,7 +30,7 @@ const App = () => {
           path="/orderConfirmation"
           element={<OrderConfirmation order={order} />}
         />
-        <Route path="/filterData" element={<FilterData />} />
+        <Route path="/filterData" element={<FilterData/>} />
         <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />
