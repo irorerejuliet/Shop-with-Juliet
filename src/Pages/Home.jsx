@@ -7,7 +7,7 @@ import  {setProducts} from '../redux/productSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Shop from './Shop';
-import ProductCard from '../Components/productCard';
+import ProductCard from '../Components/ProductCard';
 
 const Home = () => {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import ProductCard from '../Components/productCard';
+import ProductCard from '../Components/ProductCard';
 
 const FilterData = () => {
   const filterProducts = useSelector((state) => state.product.filteredData);
