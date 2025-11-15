@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Model from '../Model'
-import Login from '../Login'
-import Register from '../Register'
 import { setSearchTerm } from '../../redux/productSlice'
+import Model from '../../Components/Model'
+import Login from '../../Components/Login'
+import Register from '../../Components/Register'
 
 
 
